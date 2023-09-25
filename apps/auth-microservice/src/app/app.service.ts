@@ -1,7 +1,9 @@
+
+import { User } from '@nestjs-kafka-microservices/libs/entities';
 import { Injectable } from '@nestjs/common';
 import { UsersRepository } from './users.repository';
 import { CreateUserDto } from '@nestjs-kafka-microservices/libs/dto';
-import { User } from '@nestjs-kafka-microservices/libs/entities';
+
 
 @Injectable()
 export class AppService {

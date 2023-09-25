@@ -1,13 +1,16 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, ValidationPipe } from '@nestjs/common';
 
 import { AppService } from './app.service';
+import { EventPattern, Payload } from '@nestjs/microservices';
+import { MakePaymentDto } from '@nestjs-kafka-microservices/libs/dto';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getData() {
-    return this.appService.getData();
+
+  @EventPattern('process_payment')
+  handleProcessPayment(@Payload(ValidationPipe) data: MakePaymentDto){
+    this.appService.processPayment(data);
   }
 }
