@@ -15,9 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nestjs-kafka-microservices/libs/shared": ["libs/shared/src/index.ts"],
-      "@nestjs-kafka-microservices/libs/dto": ["libs/shared/src/lib/dto/index.ts"],
-      // "@nestjs-kafka-microservices/shared": ["shared/src/index.ts"]
+      "@nestjs-kafka-microservices/libs/dto": [
+        "libs/shared/src/lib/dto/index.ts"
+      ],
+      "@nestjs-kafka-microservices/libs/entities": [
+        "libs/shared/src/lib/entities/index.ts"
+      ],
+      "@nestjs-kafka-microservices/libs/shared": ["libs/shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
