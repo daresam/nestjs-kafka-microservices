@@ -1,4 +1,16 @@
-import { Controller } from '@nestjs/common';
+import { Body, Controller, Post, ValidationPipe } from '@nestjs/common';
+import { AuthService } from './auth.service';
+import { CreateUserDto } from '@nestjs-kafka-microservices/libs/dto';
 
 @Controller('auth')
-export class AuthController {}
+export class AuthController {
+  constructor(private readonly authService: AuthService){
+
+  }
+
+  @Post('sign-up')
+  createUser(@Body(ValidationPipe) createUserDto: CreateUserDto){
+    return this.authService.createUser(createUserDto);
+
+  }
+}
