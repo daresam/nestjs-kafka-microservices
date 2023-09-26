@@ -6,7 +6,7 @@ import { ClientKafka } from '@nestjs/microservices';
 @Injectable()
 export class AppService implements OnModuleInit {
 
-  constructor(@Inject('AUTH_SERVICE') private readonly authClient: ClientKafka){}
+  constructor(@Inject('AUTH_MICROSERVICE') private readonly authClient: ClientKafka){}
 
   processPayment(makePaymetDto: MakePaymentDto){
     const {userId, amount} = makePaymetDto;
